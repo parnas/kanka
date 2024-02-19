@@ -435,11 +435,11 @@ class User extends \Illuminate\Foundation\Auth\User
         }
 
         $validation = $this->userValidation()->valid()->first();
-        if ($validation) {
-            return false;
-        }
+        return ! ($validation)
 
-        return true;
+
+
+        ;
 
         // If the account was created recently, add some small checks
         /*if ($this->created_at->isAfter(Carbon::now()->subHour())) {
